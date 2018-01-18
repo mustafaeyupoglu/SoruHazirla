@@ -1,0 +1,38 @@
+﻿@model SoruHazirla.Models.Kullanici
+
+<body>
+
+    <section class="container">
+        <section class="login-form">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <form method="post" action="">
+                        <div class="form-group">
+                            <label>Kullanıcı Adı</label>
+                            <input type="text" name="KullaniciAdi" required class="form-control" />
+                        </div>
+
+                        <div class="form-group">
+                            <label>Şifre</label>
+                            <input type="password" name="Parola" required class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" name="go" class="btn btn-primary">Log in</button>
+                        </div>
+
+                        
+                    </form>
+                </div>
+                <div class="panel-footer">
+                    @Html.ActionLink("Kayıt Ol", "UyeOl", "Home")
+                </div>
+            </div>
+
+        </section>
+    </section>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+</body>
+

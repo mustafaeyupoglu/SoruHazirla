@@ -1,0 +1,84 @@
+﻿@model SoruHazirla.Models.Sinavlar
+
+@{
+    ViewBag.Title = "Sinav";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+
+    function ShowSonuc() {
+        // alert($(".group1:checked").val() )
+        var c1 = $(".group1:checked").val();
+        var c2 = $(".group2:checked").val();
+        var c3 = $(".group3:checked").val();
+        var c4 = $(".group4:checked").val();
+        $.ajax({
+            type: "POST",
+            url: '/Home/ShowSonuc',
+            contentType: "application/json; charset=utf-8",            
+            data: "{c1:'" + c1 + "',c2:'" + c2 + "', c3:'" + c3 + "',c4:'" + c4 + "',sId:'"+@Model.SinavId+"'}",
+            dataType: "html",
+            success: function (result) {
+                
+
+                $("#div1").html(result);
+            }});
+
+  
+}
+</script>
+
+<h2>@Model.Title</h2>
+
+<p>@Model.Icerik </p>
+   
+<br>
+<div id="div1">
+    <table>
+        <tr>
+            <td>1)@Model.s1</td>
+            <td>2)@Model.s2</td>
+        </tr>
+        <tr>
+            <td>a)<input type="radio" value="a" class="group1" name="group1">@Model.s1a</td>
+            <td>a)<input type="radio" value="a" class="group2" name="group2">@Model.s2a</td>
+        </tr>
+        <tr>
+            <td>b)<input type="radio" value="b" class="group1" name="group1">@Model.s1b</td>
+            <td>b)<input type="radio" value="b" class="group2" name="group2">@Model.s2b</td>
+        </tr>
+        <tr>
+            <td>c)<input type="radio" value="c" class="group1" name="group1">@Model.s1c</td>
+            <td>c)<input type="radio" value="c" class="group2" name="group2">@Model.s2c</td>
+        </tr>
+        <tr>
+            <td>d)<input type="radio" value="d" class="group1" name="group1">@Model.s1d</td>
+            <td>d)<input type="radio" value="d" class="group2" name="group2">@Model.s2d</td>
+        </tr>
+        <tr>
+            <td>3)@Model.s3</td>
+        <td>4)@Model.s4</td>
+    </tr>
+    <tr>
+        <td>a)<input type="radio" value="a" class="group3" name="group3">@Model.s3a</td>
+        <td>a)<input type="radio" value="a" class="group4" name="group4">@Model.s4a</td>
+    </tr>
+    <tr>
+        <td>b)<input type="radio" value="b" class="group3" name="group3">@Model.s3b</td>
+        <td>b)<input type="radio" value="b" class="group4" name="group4">@Model.s4b</td>
+    </tr>
+    <tr>
+        <td>c)<input type="radio" value="c" class="group3" name="group3">@Model.s3c</td>
+        <td>c)<input type="radio" value="c" class="group4" name="group4">@Model.s4c</td>
+    </tr>
+    <tr>
+        <td>d)<input type="radio" value="d" class="group3" name="group3">@Model.s3d</td>
+        <td>d)<input type="radio" value="d" class="group4" name="group4">@Model.s4d</td>
+    </tr>
+
+</table>
+
+</div>
+<input id="btnGet" name="btnGet" type="button" value="Tamamla" onclick="ShowSonuc()" />

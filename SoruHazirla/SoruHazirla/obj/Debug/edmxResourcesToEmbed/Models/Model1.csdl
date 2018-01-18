@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SoruHazirlaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Kullanici">
+    <Key>
+      <PropertyRef Name="KullaniciAdi" />
+    </Key>
+    <Property Name="KullaniciAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Parola" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Sinavlar" Relationship="Self.FK_Sinavlar_Kullanici" FromRole="Kullanici" ToRole="Sinavlar" />
+  </EntityType>
+  <EntityType Name="Sinavlar">
+    <Key>
+      <PropertyRef Name="SinavId" />
+    </Key>
+    <Property Name="SinavId" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Icerik" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="s1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="s1a" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="s1b" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="s1c" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="s1d" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="s1cevap" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="s2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="s2a" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="s2b" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="s2c" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="s2d" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="s2cevap" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="s3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="s3a" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="s3b" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="s3c" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="s3d" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="s3cevap" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="s4" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="s4a" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="s4b" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="s4c" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="s4d" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="s4cevap" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Tarih" Type="String" />
+    <Property Name="Hazirlayan" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Kullanici" Relationship="Self.FK_Sinavlar_Kullanici" FromRole="Sinavlar" ToRole="Kullanici" />
+  </EntityType>
+  <Association Name="FK_Sinavlar_Kullanici">
+    <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="0..1" />
+    <End Role="Sinavlar" Type="Self.Sinavlar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kullanici">
+        <PropertyRef Name="KullaniciAdi" />
+      </Principal>
+      <Dependent Role="Sinavlar">
+        <PropertyRef Name="Hazirlayan" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SoruHazirlaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Kullanici" EntityType="Self.Kullanici" />
+    <EntitySet Name="Sinavlar" EntityType="Self.Sinavlar" />
+    <AssociationSet Name="FK_Sinavlar_Kullanici" Association="Self.FK_Sinavlar_Kullanici">
+      <End Role="Kullanici" EntitySet="Kullanici" />
+      <End Role="Sinavlar" EntitySet="Sinavlar" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SoruHazirlaModelStoreContainer" CdmEntityContainer="SoruHazirlaEntities">
+    <EntitySetMapping Name="Kullanici">
+      <EntityTypeMapping TypeName="SoruHazirlaModel.Kullanici">
+        <MappingFragment StoreEntitySet="Kullanici">
+          <ScalarProperty Name="KullaniciAdi" ColumnName="KullaniciAdi" />
+          <ScalarProperty Name="Parola" ColumnName="Parola" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sinavlar">
+      <EntityTypeMapping TypeName="SoruHazirlaModel.Sinavlar">
+        <MappingFragment StoreEntitySet="Sinavlar">
+          <ScalarProperty Name="SinavId" ColumnName="SinavId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Icerik" ColumnName="Icerik" />
+          <ScalarProperty Name="s1" ColumnName="s1" />
+          <ScalarProperty Name="s1a" ColumnName="s1a" />
+          <ScalarProperty Name="s1b" ColumnName="s1b" />
+          <ScalarProperty Name="s1c" ColumnName="s1c" />
+          <ScalarProperty Name="s1d" ColumnName="s1d" />
+          <ScalarProperty Name="s1cevap" ColumnName="s1cevap" />
+          <ScalarProperty Name="s2" ColumnName="s2" />
+          <ScalarProperty Name="s2a" ColumnName="s2a" />
+          <ScalarProperty Name="s2b" ColumnName="s2b" />
+          <ScalarProperty Name="s2c" ColumnName="s2c" />
+          <ScalarProperty Name="s2d" ColumnName="s2d" />
+          <ScalarProperty Name="s2cevap" ColumnName="s2cevap" />
+          <ScalarProperty Name="s3" ColumnName="s3" />
+          <ScalarProperty Name="s3a" ColumnName="s3a" />
+          <ScalarProperty Name="s3b" ColumnName="s3b" />
+          <ScalarProperty Name="s3c" ColumnName="s3c" />
+          <ScalarProperty Name="s3d" ColumnName="s3d" />
+          <ScalarProperty Name="s3cevap" ColumnName="s3cevap" />
+          <ScalarProperty Name="s4" ColumnName="s4" />
+          <ScalarProperty Name="s4a" ColumnName="s4a" />
+          <ScalarProperty Name="s4b" ColumnName="s4b" />
+          <ScalarProperty Name="s4c" ColumnName="s4c" />
+          <ScalarProperty Name="s4d" ColumnName="s4d" />
+          <ScalarProperty Name="s4cevap" ColumnName="s4cevap" />
+          <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+          <ScalarProperty Name="Hazirlayan" ColumnName="Hazirlayan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

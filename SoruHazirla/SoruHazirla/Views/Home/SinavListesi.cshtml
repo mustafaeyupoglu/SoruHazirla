@@ -1,0 +1,62 @@
+﻿@model IEnumerable<SoruHazirla.Models.Sinavlar>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (Session["KullaniciAdi"] != null)
+{
+
+
+    if (Model != null)
+    {
+        <table cellpadding="10">
+            <tr>
+                <th>
+                    SinavId
+                </th>
+                <th>
+                    Title
+                </th>
+                <th>
+                    Tarih
+                </th>
+                <th>
+                    Hazirlayan
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.SinavId
+                    </td>
+                    <td>
+                        @item.Title
+                    </td>
+                    <td>
+                        @item.Tarih
+                    </td>
+                    <td>
+                        @item.Hazirlayan
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Sinav", "Home", new { id = item.SinavId })">Sınava Başla</a>
+                    </td>
+                    <td>
+
+                        <a href="@Url.Action("SinavSil", "Home", new { id = item.SinavId })">Sil</a>
+                    </td>
+                </tr>
+
+
+            }
+        </table>
+    }
+}
+
+
+else
+{
+    Response.Redirect("~/Home/Login");
+}

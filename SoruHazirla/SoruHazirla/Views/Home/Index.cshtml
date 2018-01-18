@@ -1,0 +1,134 @@
+﻿@model SoruHazirla.Models.Sinavlar
+@{
+    ViewBag.Title = "Index";
+}
+@if (Session["KullaniciAdi"] != null)
+{
+<script type="text/javascript">
+    function comboChange(selectObj) {
+
+        var selectIndex = selectObj.selectedIndex;
+        var selectValue = selectObj.options[selectIndex].value;
+
+        var output1 = document.getElementById("Title");
+        output1.value = selectObj.options[selectIndex].innerHTML;
+
+        var output2 = document.getElementById("IcerikG");
+        output2.innerHTML = selectValue;
+        var output3 = document.getElementById("Icerik");
+        output3.value = selectValue;
+    }
+</script>
+
+@Html.DropDownList("baslik", (SelectList)ViewBag.titles, new { onchange = "comboChange(this);" })<br />
+
+
+
+<div id="IcerikG" name="IcerikG"></div>
+
+<form class="row" method="post" action="@Url.Action("Index","Home")">
+
+    <input type="hidden" id="Title" name="Title" value="" />
+
+
+    <table>
+        <tr>
+            <td colspan="1">Soru1) @Html.TextBoxFor(model => model.s1)</td>
+        </tr>
+        <tr>
+            <td>a)@Html.TextBoxFor(model => model.s1a)</td>
+            <td>b)@Html.TextBoxFor(model => model.s1b)</td>
+        </tr>
+        <tr>
+            <td>c)@Html.TextBoxFor(model => model.s1c)</td>
+            <td>d)@Html.TextBoxFor(model => model.s1d)</td>
+        </tr>
+        <tr>
+            <td colspan="1">Cevap)<select id="s1cevap" name="s1cevap">
+                                        <option value="a">a</option>
+                                        <option value="b">b</option>
+                                        <option value="c">c</option>
+                                        <option value="d">d</option>
+                                  </select> 
+            </td>
+        </tr>
+    </table>
+    <br>
+    <table>
+        <tr>
+            <td colspan="1">Soru2) @Html.TextBoxFor(model => model.s2)</td>
+        </tr>
+        <tr>
+            <td>a)@Html.TextBoxFor(model => model.s2a)</td>
+            <td>b)@Html.TextBoxFor(model => model.s2b)</td>
+        </tr>
+        <tr>
+            <td>c)@Html.TextBoxFor(model => model.s2c)</td>
+            <td>d)@Html.TextBoxFor(model => model.s2d)</td>
+        </tr>
+        <tr>
+            <td colspan="1">Cevap)<select id="s2cevap" name="s2cevap">
+    <option value="a">a</option>
+    <option value="b">b</option>
+    <option value="c">c</option>
+    <option value="d">d</option>
+</select> </td>
+        </tr>
+    </table>
+    <br>
+    <table>
+        <tr>
+            <td colspan="1">Soru3) @Html.TextBoxFor(model => model.s3)</td>
+        </tr>
+        <tr>
+            <td>a)@Html.TextBoxFor(model => model.s3a)</td>
+            <td>b)@Html.TextBoxFor(model => model.s3b)</td>
+        </tr>
+        <tr>
+            <td>c)@Html.TextBoxFor(model => model.s3c)</td>
+            <td>d)@Html.TextBoxFor(model => model.s3d)</td>
+        </tr>
+        <tr>
+            <td colspan="1">Cevap)<select id="s3cevap" name="s3cevap">
+    <option value="a">a</option>
+    <option value="b">b</option>
+    <option value="c">c</option>
+    <option value="d">d</option>
+</select> </td>
+        </tr>
+    </table>
+    <br>
+
+    <table>
+        <tr>
+            <td colspan="1">Soru4) @Html.TextBoxFor(model => model.s4)</td>
+        </tr>
+        <tr>
+            <td>a)@Html.TextBoxFor(model => model.s4a)</td>
+            <td>b)@Html.TextBoxFor(model => model.s4b)</td>
+        </tr>
+        <tr>
+            <td>c)@Html.TextBoxFor(model => model.s4c)</td>
+            <td>d)@Html.TextBoxFor(model => model.s4d)</td>
+        </tr>
+        <tr>
+            <td colspan="1">Cevap)<select id="s4cevap" name="s4cevap">
+    <option value="a">a</option>
+    <option value="b">b</option>
+    <option value="c">c</option>
+    <option value="d">d</option>
+</select> </td>
+        </tr>
+    </table>
+    <input type="submit" value="Olustur">
+</form>
+
+
+
+
+
+}
+else
+{
+    Response.Redirect("~/Home/Login");
+}
